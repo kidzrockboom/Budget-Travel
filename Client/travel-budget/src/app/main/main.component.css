@@ -1,0 +1,19 @@
+/* Style for the side nav  */
+mat-sidenav {
+    background: #0f172a;
+    width: 230px;
+    height: 100%;
+}
+/* Change the cursor to a pointer on hover */
+.menu-icon:hover {
+    cursor: pointer;
+}
+
+/* style for the main content page */
+mat-sidenav-content {
+    height: 100vh;
+    
+}
+mat-sidenav-content .main {
+    margin-left: 30px;
+}
