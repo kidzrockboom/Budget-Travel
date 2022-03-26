@@ -37,6 +37,7 @@ router.post('/', async(req, res) => {
                     id: rows[0].user_id
                 }
 
+                // Create a web token to send to front end and secret key validation
                 const token = webToken.sign(userDetails, process.env.SECRET_KEY, {expiresIn: "60s"});
 
                 res.status(200).json({
