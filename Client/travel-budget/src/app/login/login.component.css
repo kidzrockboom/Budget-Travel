@@ -1,0 +1,20 @@
+mat-form-field {
+    display: block;
+    margin-left: 30px;
+    margin-top: 25px;
+    width: 80%;
+}
+
+.regBtn {
+    padding-right: 40px;
+}
+
+
+
+.mat-accent {
+    background-color: #42A948 !important;
+}
+
+.ng-valid.required {
+    background-color: lightgreen;
+}

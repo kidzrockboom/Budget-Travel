@@ -1,0 +1,100 @@
+<!-- Registration form -->
+<div class="regForm">
+  <h2 [hidden]="success">Create an Account</h2>
+
+  <form [formGroup]="regForm" (ngSubmit)="signup()" novalidate>
+
+    <!-- First Name -->
+    <mat-form-field>
+      <mat-label> FirstName</mat-label>
+      <input matInput placeholder="First Name" formControlName="firstname" />
+    </mat-form-field>
+
+    <!-- Last Name -->
+    <mat-form-field>
+      <mat-label> LastName</mat-label>
+      <input matInput placeholder="Last Name" formControlName="lastname" />
+    </mat-form-field>
+
+    <!-- Email -->
+    <mat-form-field appearance="fill">
+      <input
+        matInput
+        type="email"
+        placeholder="email"
+        formControlName="email"
+        autocomplete="off"
+      />
+
+      <mat-error *ngIf="(email!.dirty || email!.touched) && email!.invalid">
+        Your email does not look right
+      </mat-error>
+    </mat-form-field>
+
+    <!-- Password -->
+    <mat-form-field appearance="outline">
+      <input
+        matInput
+        type="password"
+        placeholder="password"
+        formControlName="password"
+        autocomplete="new-password"
+      />
+
+      <mat-hint align="end"
+        >Must have one uppercaseletter, one lowercase letter, one number, and
+        one special character</mat-hint
+      >
+      <mat-error
+        *ngIf="(password?.dirty || password?.touched) && password?.invalid"
+        class="has-text-danger"
+      >
+        You need a stronger Password
+      </mat-error>
+    </mat-form-field>
+
+    <!-- Address -->
+    <mat-form-field>
+      <mat-label> Address</mat-label>
+      <input matInput placeholder="Address" formControlName="address" />
+    </mat-form-field>
+
+    <!-- City -->
+    <mat-form-field>
+      <mat-label> City</mat-label>
+      <input matInput placeholder="City" formControlName="city" />
+    </mat-form-field>
+
+    <!-- Country -->
+    <mat-form-field>
+      <mat-label> Country</mat-label>
+      <input matInput placeholder="Country" formControlName="country" />
+    </mat-form-field>
+
+    <!-- Currency -->
+    <mat-form-field appearance="fill">
+        <mat-label>Currency</mat-label>
+            <mat-select formControlName="currency">
+                <mat-option *ngFor="let currency of currencyCodes" [value]="currency.value"> {{currency.viewValue}} </mat-option>
+            </mat-select>
+    </mat-form-field>
+
+    <br />
+    <div class="regBtn" align="end">
+      <button mat-raised-button [disabled]="regForm.invalid" color="primary">
+        Register
+      </button>
+    </div>
+  </form>
+
+  <br>
+
+  <div class="displayFailure" *ngIf="failure">
+    <h2> {{feedback}} </h2>
+  </div>
+
+  <div class="displaySuccess" *ngIf="success">
+    <h2> {{feedback}} </h2>
+  </div>
+  
+</div>

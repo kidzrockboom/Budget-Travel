@@ -27,6 +27,11 @@ mat-sidenav-content .main {
     margin-left: 15px;
 }
 
+/* Spacing betwween signup buttons and menu button */
+mat-toolbar{
+    justify-content: space-between;
+}
+
 
 .main {
     background-image: "../../ass";

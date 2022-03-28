@@ -6,6 +6,9 @@ import { AppComponent } from './app.component';
 import { MainComponent } from './main/main.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatInputModule } from '@angular/material/input';
+import { MatListModule } from '@angular/material/list';
+import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from "@angular/material/icon";
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
@@ -14,6 +17,10 @@ import { FormsComponent } from './forms/forms.component';
 import { TripsComponent } from './trips/trips.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { EditComponent } from './edit/edit.component';
+import { RegisterComponent } from './register/register.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MatSelectModule } from '@angular/material/select';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +30,9 @@ import { EditComponent } from './edit/edit.component';
     FormsComponent,
     TripsComponent,
     HomepageComponent,
-    EditComponent
+    EditComponent,
+    RegisterComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -32,7 +41,12 @@ import { EditComponent } from './edit/edit.component';
     MatSidenavModule,
     MatIconModule,
     MatToolbarModule,
-    MatButtonModule
+    MatButtonModule,
+    MatCardModule,
+    MatInputModule,
+    MatListModule,
+    ReactiveFormsModule,
+    MatSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]

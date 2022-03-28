@@ -1,0 +1,45 @@
+<!-- Login form -->
+<div class="regForm">
+
+    <h2> Login</h2>
+
+<form [formGroup]="logForm" (ngSubmit)="login()"[hidden]="success">
+
+    <!-- value: {{regForm.value | json }} -->
+
+    <!-- Email -->
+    <mat-form-field appearance="fill">
+        <input matInput type="email" placeholder="email" formControlName="email" autocomplete="off">
+
+        <mat-error *ngIf="(email!.dirty || email!.touched) && email!.invalid">
+            Your email does not look right
+        </mat-error>
+        
+    </mat-form-field>
+
+    <!-- Password -->
+    <mat-form-field appearance="outline">
+        <input matInput type="password" placeholder="password" formControlName="password" autocomplete="off">
+
+    </mat-form-field>
+
+    <br>
+    <div class="regBtn" align="end">
+        <button mat-raised-button [disabled]="logForm.invalid" color="primary"> Login </button>
+    </div>
+    
+
+
+</form>
+<br>
+
+  <div class="displayFailure" *ngIf="failure">
+    <h2> {{feedback}} </h2>
+  </div>
+
+  <div class="displaySuccess" *ngIf="success">
+    <h2> {{feedback}} </h2>
+  </div>
+
+
+</div>
