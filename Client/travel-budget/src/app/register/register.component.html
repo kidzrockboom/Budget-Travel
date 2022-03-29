@@ -1,6 +1,6 @@
 <!-- Registration form -->
 <div class="regForm">
-  <h2 [hidden]="success">Create an Account</h2>
+  <h2 >Create an Account</h2>
 
   <form [formGroup]="regForm" (ngSubmit)="signup()" novalidate>
 
@@ -89,12 +89,9 @@
 
   <br>
 
-  <div class="displayFailure" *ngIf="failure">
-    <h2> {{feedback}} </h2>
+  <div class="displayFailure" *ngIf="message">
+    <h2> {{message}} </h2>
   </div>
 
-  <div class="displaySuccess" *ngIf="success">
-    <h2> {{feedback}} </h2>
-  </div>
   
 </div>

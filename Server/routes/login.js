@@ -38,12 +38,13 @@ router.post('/', async(req, res) => {
                 }
 
                 // Create a web token to send to front end and secret key validation
-                const token = webToken.sign(userDetails, process.env.SECRET_KEY, {expiresIn: "60s"});
+                const token = webToken.sign(userDetails, process.env.SECRET_KEY, {expiresIn: "1h"});
 
                 res.status(200).json({
                     message: "Logged In Successfully",
                     status: res.statusCode,
-                    token
+                    userID: rows[0].user_id,
+                    token: token
                 })
             }
         }

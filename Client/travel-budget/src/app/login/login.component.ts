@@ -14,12 +14,8 @@ export class LoginComponent implements OnInit {
       password: new FormControl('', [Validators.required])
     });
   }
-
-
-  loading = false;
-  success = false;
-  failure = false;
-  feedback: String = "";
+ 
+  feedback: any = {};
 
   logForm: FormGroup;
 
