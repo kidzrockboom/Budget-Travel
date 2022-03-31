@@ -3,8 +3,8 @@
     </div>
     <div class="user">
         <img src="../../assets/image.png" alt="user image">
-        <h4 class="name"> User's name</h4>
-        <p class="email"> User's email</p>
+        <h4 class="name"> {{userInfo.data.firstname}} {{userInfo.data.lastname}} </h4>
+        <p class="email"> {{userInfo.data.email}} </p>
     </div>
     <div class="menu">
         <div class="menu-head">
@@ -19,11 +19,11 @@
                 <mat-icon>flight</mat-icon>
                 <span>Trips</span>
             </button>
-            <button mat-button class="menu-button" routerLink="/edit">
+            <button (click)="getUserProf()" mat-button class="menu-button" routerLink="/edit">
                 <mat-icon>edit</mat-icon>
                 <span>Edit</span>
             </button>
-            <button mat-button class="menu-button">
+            <button (click)="logout()" mat-button class="menu-button">
                 <mat-icon>logout</mat-icon>
                 <span>Logout</span>
             </button>

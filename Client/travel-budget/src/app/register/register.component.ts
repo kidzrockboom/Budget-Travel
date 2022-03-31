@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../services/auth.service';
+import { ToastrService } from 'ngx-toastr';
 
 // Interface for the currency code array
 interface Currency {
@@ -37,7 +38,8 @@ export class RegisterComponent implements OnInit {
   feedback: any = {message: ""};
   message = this.feedback.message;
 
-  constructor(private formBuilder: FormBuilder, private authService: AuthService) {
+  constructor(private formBuilder: FormBuilder, private authService: AuthService,
+    private toastr: ToastrService) {
     this.regForm = this.createFormGroup();
 
    }
@@ -78,6 +80,12 @@ export class RegisterComponent implements OnInit {
     .subscribe((msg) => {
       this.feedback = msg;
       this.message = this.feedback.message;
+      if (this.message === "Registration successful") {
+        this.toastr.success(this.message);
+      } else {
+        this.toastr.error(this.message);
+      }
+      
     })
   }
 

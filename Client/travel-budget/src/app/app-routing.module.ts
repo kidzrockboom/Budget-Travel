@@ -6,17 +6,19 @@ import { MainComponent } from './main/main.component';
 import { RegisterComponent } from './register/register.component';
 import { TripsComponent } from './trips/trips.component';
 import { LoginComponent } from './login/login.component';
+import { AuthGuard } from './auth.guard';
 
 const routes: Routes = [
-  {path: "", component: MainComponent,
+  {path: "", 
+  component: MainComponent,
   children: [
-     {path: 'edit', component: EditComponent},
-     {path: 'trips', component: TripsComponent},
-     {path: 'home', component: HomepageComponent},
+     {path: 'edit', component: EditComponent, canActivate: [AuthGuard]},
+     {path: 'trips', component: TripsComponent, canActivate: [AuthGuard]},
+     {path: 'home', component: HomepageComponent, canActivate: [AuthGuard]},
      {path: 'login', component: LoginComponent},
      {path: 'signup', component: RegisterComponent},
   ]
-},
+}
   
 ];
 

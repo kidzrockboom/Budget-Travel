@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AuthService } from '../services/auth.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-login',
@@ -16,10 +18,12 @@ export class LoginComponent implements OnInit {
   }
  
   feedback: any = {};
+  message: string = "";
 
   logForm: FormGroup;
 
-  constructor(private formBuilder: FormBuilder) {
+  constructor(private formBuilder: FormBuilder, private authService: AuthService,
+    private toastr: ToastrService) {
     this.logForm = this.createFormGroup();
   
   }
@@ -38,7 +42,16 @@ export class LoginComponent implements OnInit {
   }
 
   login():void {
-  console.log(this.logForm.value); 
+    this.authService.login(this.logForm.value)
+    .subscribe((msg) => {
+      this.feedback = msg;
+      this.message = this.feedback.message;
+      if (this.message === "Logged In Successfully") {
+        this.toastr.success(this.message)
+      } else {
+        this.toastr.error(this.message)
+      }
+    })
   }
 
 

@@ -30,9 +30,9 @@ mat-sidenav-content .main {
 /* Spacing betwween signup buttons and menu button */
 mat-toolbar{
     justify-content: space-between;
+    background-color: transparent;
 }
 
-
-.main {
-    background-image: "../../ass";
+.content {
+    background-image: url("../../assets/wp2.jpg");
 }

@@ -25,16 +25,18 @@ router.post('/', async(req, res) => {
                                             password = crypt($2, password)`,[email, password]);
             if (rows.length < 1) { // If the rows is 0 then the user email doesnt exist
                 res.status(401).json({
-                    message: "Email or Password is incorrect"
+                    message: "Email or Password is incorrect",
+                    status: res.statusCode
                 })
 
             } else {
-                console.log(rows)
                 const userDetails = {
                     firstname : rows[0].firstname,
                     lastname : rows[0].lastname,
                     email : rows[0].email,
-                    id: rows[0].user_id
+                    id: rows[0].user_id,
+                    country: rows[0].country,
+                    currency: rows[0].currency
                 }
 
                 // Create a web token to send to front end and secret key validation
@@ -43,7 +45,6 @@ router.post('/', async(req, res) => {
                 res.status(200).json({
                     message: "Logged In Successfully",
                     status: res.statusCode,
-                    userID: rows[0].user_id,
                     token: token
                 })
             }
